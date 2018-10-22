@@ -17,7 +17,7 @@ namespace Lab08_LINQinManhattan
 
         static void JsonConversion()
         {
-            string path = "../../../data.json";
+            string path = "../../../manhattan.json";
             string text = "";
 
             // using streamreader to access json file
@@ -28,17 +28,17 @@ namespace Lab08_LINQinManhattan
             }
 
             // deserialize the JSON to convert to the Neighborhoods object
-            List<Neighborhoods> myNeighborhoods = JsonConvert.DeserializeObject<List<Neighborhoods>>(text);
+            List<Feature> myNeighborhoods = JsonConvert.DeserializeObject<List<Feature>>(text);
 
             // query to get all neighborhoods in manhattan  
-            var neighborhoodNames = myNeighborhoods.Where(name => name.Neighborhood == "Neighborhood");
+            var neighborhoodNames = myNeighborhoods.Select(Feature => Feature.properties.Neighborhood);
 
             foreach (var item in neighborhoodNames)
             {
-                if (item.Neighborhood == "Neighborhood")
-                {
-                    Console.WriteLine(item.Neighborhood);
-                }
+                //if (item. == "Neighborhood")
+                //{
+                    Console.WriteLine(item);
+                //}
             }
         }
     }
