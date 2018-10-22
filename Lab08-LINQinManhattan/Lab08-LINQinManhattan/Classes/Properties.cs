@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace Lab08_LINQinManhattan.Classes
 {
-    class Neighborhoods
+    class Properties
     {
         [JsonProperty("Neighborhood")]
         public string Neighborhood { get; set; }
