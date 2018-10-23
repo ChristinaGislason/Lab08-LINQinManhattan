@@ -5,16 +5,14 @@ using System.Text;
 
 namespace Lab08_LINQinManhattan.Classes
 {
-    class Feature
-    {        
-        // set properties for Feature class
+    class Manhattan
+    {
+        // set properties for Manhattan class
 
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        [JsonProperty("properties")]
-        public Properties Properties { get; set; }
+        [JsonProperty("features")]
+        public List<Feature> Features { get; set; }
     }
 }
-
-
