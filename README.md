@@ -15,3 +15,7 @@ Questions:
 - Rewrite at least one of these questions only using the opposing method (example: Use LINQ instead of a Lambda and vice versa.)
 
 ## Solution
+
+Partial sampling of solution.
+
+![Lab08-LINQinManhattan](https://github.com/ChristinaGislason/Lab08-LINQinManhattan/blob/master/Lab08-LINQinManhattan.JPG)
