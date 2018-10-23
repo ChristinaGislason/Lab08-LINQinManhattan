@@ -7,6 +7,8 @@ namespace Lab08_LINQinManhattan.Classes
 {
     class Manhattan
     {
+        // set properties for Manhattan class
+
         [JsonProperty("type")]
         public string Type { get; set; }
 

@@ -7,6 +7,8 @@ namespace Lab08_LINQinManhattan.Classes
 {
     class Properties
     {
+        // set properties for Properties class
+
         [JsonProperty("zip")]
         public string Zip { get; set; }
 
