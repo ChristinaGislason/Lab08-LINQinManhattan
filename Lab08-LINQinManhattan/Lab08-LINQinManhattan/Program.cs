@@ -1,45 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Lab08_LINQinManhattan.Classes;
-using Newtonsoft.Json;
+﻿using Lab08_LINQinManhattan.Classes;
+using System;
 
-namespace Lab08_LINQinManhattan
+namespace LAB08_LINQinManhatten
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            JsonConversion();
-        }
+            Query query = new Query();
+            Manhattan manhattan = query.JsonConversionGetData();
+            Console.WriteLine("----------");
+            Console.WriteLine("Output all neighborhoods in data list");
+            query.GetNeighborhoods(manhattan);
 
-        static void JsonConversion()
-        {
-            string path = "../../../manhattan.json";
-            string text = "";
+            Console.WriteLine("----------");
+            Console.WriteLine("Filter out all neighborhoods that do not have names");
+            query.FilterNeighborhoods(manhattan);
 
-            // using streamreader to access json file
-            using (StreamReader sr = File.OpenText(path))
-            {
-                // get all the text
-                text = sr.ReadToEnd();
-            }
+            Console.WriteLine("----------");
+            Console.WriteLine("Remove duplicates");
+            query.RemoveDuplicates(manhattan);
 
-            // deserialize the JSON to convert to the Neighborhoods object
-            List<Feature> myNeighborhoods = JsonConvert.DeserializeObject<List<Feature>>(text);
+            Console.WriteLine("----------");
+            Console.WriteLine("Remove duplicates");
+            Console.WriteLine("Filter out all neighborhoods that do not have names");
+            query.RemoveDuplicateOfNeighborhoodWithoutNames(manhattan);
 
-            // query to get all neighborhoods in manhattan  
-            var neighborhoodNames = myNeighborhoods.Select(Feature => Feature.properties.Neighborhood);
-
-            foreach (var item in neighborhoodNames)
-            {
-                //if (item. == "Neighborhood")
-                //{
-                    Console.WriteLine(item);
-                //}
-            }
+            Console.WriteLine("----------");
+            Console.WriteLine("Using LINQ");
+            query.ChangeToLINQ(manhattan);
         }
     }
 }
